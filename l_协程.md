@@ -73,3 +73,16 @@ func main(){
 }
 ```
 
+带缓冲版本
+```
+func main(){
+  ch := make(chan, 10)
+  for i:=1; i<10; i++ {
+    ch <- i
+  }
+  ch.close()
+  for i range ch{
+    fmt.Println("i is %d",i)
+  }
+}
+```
